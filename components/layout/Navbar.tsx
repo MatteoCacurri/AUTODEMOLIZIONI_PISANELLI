@@ -1,0 +1,99 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import { Menu, X, Cog } from 'lucide-react'
+
+const NAV_LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/servizi', label: 'Servizi' },
+  { href: '/ricambi', label: 'Ricambi' },
+  { href: '/contatti', label: 'Contatti' },
+]
+
+export default function Navbar() {
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href)
+
+  return (
+    <header className="sticky top-0 z-50 bg-brand-black border-b border-brand-orange/30 shadow-lg">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
+            <div className="flex items-center justify-center w-9 h-9 bg-brand-orange rounded-md group-hover:bg-brand-orange-dark transition-colors">
+              <Cog className="w-5 h-5 text-white" />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-brand-orange font-bold text-base tracking-wide">AP</span>
+              <span className="text-white text-[10px] tracking-widest uppercase">Pisanelli</span>
+            </div>
+          </Link>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-1">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  isActive(link.href)
+                    ? 'text-brand-orange bg-brand-orange/10'
+                    : 'text-gray-300 hover:text-white hover:bg-brand-gray-dark'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/contatti"
+              className="ml-3 px-4 py-2 bg-brand-orange hover:bg-brand-orange-dark text-white text-sm font-semibold rounded-md transition-colors"
+            >
+              Contattaci
+            </Link>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden text-gray-300 hover:text-white p-2 rounded-md hover:bg-brand-gray-dark transition-colors"
+            onClick={() => setOpen(!open)}
+            aria-label={open ? 'Chiudi menu' : 'Apri menu'}
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        {open && (
+          <div className="md:hidden border-t border-brand-gray py-3 space-y-1">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`block px-4 py-3 rounded-md text-sm font-medium transition-colors ${
+                  isActive(link.href)
+                    ? 'text-brand-orange bg-brand-orange/10'
+                    : 'text-gray-300 hover:text-white hover:bg-brand-gray-dark'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/contatti"
+              onClick={() => setOpen(false)}
+              className="block mt-2 px-4 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white text-sm font-semibold rounded-md transition-colors text-center"
+            >
+              Contattaci
+            </Link>
+          </div>
+        )}
+      </nav>
+    </header>
+  )
+}

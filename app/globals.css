@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand Colors */
+  --color-brand-orange: #F97316;
+  --color-brand-orange-dark: #EA6A07;
+  --color-brand-orange-light: #FED7AA;
+  --color-brand-black: #111827;
+  --color-brand-gray-dark: #1F2937;
+  --color-brand-gray: #374151;
+  --color-brand-gray-mid: #6B7280;
+  --color-brand-gray-light: #F9FAFB;
+
+  /* Fonts */
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #111827;
+  --foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Scrollbar personalizzata */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+::-webkit-scrollbar-thumb {
+  background: #F97316;
+  border-radius: 3px;
+}
+
+/* Selezione testo */
+::selection {
+  background: #F97316;
+  color: white;
+}
+
+/* Focus accessibile */
+*:focus-visible {
+  outline: 2px solid #F97316;
+  outline-offset: 2px;
+}
