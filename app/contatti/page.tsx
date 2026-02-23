@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import {
   Phone,
   Mail,
@@ -28,15 +29,24 @@ export default function ContattiPage() {
   return (
     <>
       {/* Hero compatto */}
-      <section className="bg-brand-gray-dark border-b border-brand-gray py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative overflow-hidden py-20 lg:py-28 flex items-center justify-center">
+        <Image
+          src="/images/banner-panoramico.jpg"
+          alt="Autodemolizioni Pisanelli - vista panoramica"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-brand-black/65 to-brand-black/85" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-brand-orange text-sm font-semibold uppercase tracking-widest mb-3">
             Siamo qui per te
           </span>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Contatti e Dove Siamo
           </h1>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-xl mx-auto">
             Hai domande o vuoi un preventivo? Scrivici o chiamaci direttamente.
           </p>
         </div>

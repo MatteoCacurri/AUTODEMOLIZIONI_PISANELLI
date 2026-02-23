@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { MessageCircle } from 'lucide-react'
 import FaqAccordion from '@/components/faq/FaqAccordion'
@@ -91,15 +92,24 @@ export default function FaqPage() {
       />
 
       {/* Hero */}
-      <section className="bg-brand-gray-dark border-b border-brand-gray py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative overflow-hidden py-20 lg:py-28 flex items-center justify-center">
+        <Image
+          src="/images/autosilo-scaffali.jpg"
+          alt="Magazzino ricambi Autodemolizioni Pisanelli"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-brand-black/65 to-brand-black/85" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-brand-orange text-sm font-semibold uppercase tracking-widest mb-3">
             Hai dubbi?
           </span>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Domande Frequenti
           </h1>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-xl mx-auto">
             Le risposte alle domande più comuni su rottamazione e ricambi usati.
             Non trovi quello che cerchi? Scrivici direttamente.
           </p>
