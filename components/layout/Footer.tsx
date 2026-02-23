@@ -39,6 +39,7 @@ export default function Footer() {
                 { href: '/rottamazione', label: 'Rottamazione' },
                 { href: '/servizi', label: 'Servizi' },
                 { href: '/ricambi', label: 'Ricambi' },
+                { href: '/faq', label: 'FAQ' },
                 { href: '/contatti', label: 'Contatti' },
               ].map((link) => (
                 <Link
