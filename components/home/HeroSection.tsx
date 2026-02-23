@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { MapPin, ChevronDown } from 'lucide-react'
+import { MapPin, ChevronDown, Phone } from 'lucide-react'
 import { COMPANY } from '@/lib/constants'
 
 export default function HeroSection() {
@@ -51,18 +51,30 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/servizi"
+            href="/rottamazione"
             className="px-8 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg text-lg transition-all duration-200 hover:shadow-lg hover:shadow-brand-orange/30 hover:-translate-y-0.5"
           >
-            Scopri i Servizi
+            Richiedi Ritiro Gratuito
           </Link>
           <Link
-            href="/contatti"
+            href="/ricambi"
             className="px-8 py-4 border-2 border-white/40 hover:border-white text-white font-semibold rounded-lg text-lg transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5"
           >
-            Contattaci
+            Cerca un Ricambio
           </Link>
         </div>
+
+        {/* Microcopy telefono */}
+        <p className="mt-6 text-sm text-gray-400">
+          Preferisci chiamare?{' '}
+          <a
+            href={`tel:${COMPANY.contacts.phone.magazzino.tel}`}
+            className="text-white font-semibold hover:text-brand-orange transition-colors inline-flex items-center gap-1"
+          >
+            <Phone className="w-3.5 h-3.5" />
+            {COMPANY.contacts.phone.magazzino.number}
+          </a>
+        </p>
       </div>
 
       {/* Scroll indicator */}

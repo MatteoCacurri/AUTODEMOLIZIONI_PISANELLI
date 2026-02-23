@@ -19,8 +19,9 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              {COMPANY.yearsExperience} anni di esperienza nel settore automotive.
-              Demolizione, ricambi e molto altro a Gerano (Roma).
+              Impianto autorizzato con {COMPANY.yearsExperience} anni di esperienza.
+              Rottamazione con ritiro gratuito, cancellazione PRA e ricambi usati garantiti.
+              Risposta entro 30 minuti in orario lavorativo.
             </p>
             <p className="text-gray-500 text-xs">
               P.IVA {COMPANY.vatNumber} · Cod. SDI {COMPANY.sdiCode}
@@ -35,6 +36,7 @@ export default function Footer() {
             <nav className="space-y-2 mb-6">
               {[
                 { href: '/', label: 'Home' },
+                { href: '/rottamazione', label: 'Rottamazione' },
                 { href: '/servizi', label: 'Servizi' },
                 { href: '/ricambi', label: 'Ricambi' },
                 { href: '/contatti', label: 'Contatti' },

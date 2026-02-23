@@ -3,10 +3,12 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu, X, Cog } from 'lucide-react'
+import { Menu, X, Cog, Phone } from 'lucide-react'
+import { COMPANY } from '@/lib/constants'
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
+  { href: '/rottamazione', label: 'Rottamazione' },
   { href: '/servizi', label: 'Servizi' },
   { href: '/ricambi', label: 'Ricambi' },
   { href: '/contatti', label: 'Contatti' },
@@ -49,9 +51,16 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href={`tel:${COMPANY.contacts.phone.magazzino.tel}`}
+              className="ml-3 hidden lg:flex items-center gap-1.5 text-[#25D366] hover:text-[#1ebe57] text-sm font-semibold transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              {COMPANY.contacts.phone.magazzino.number}
+            </a>
             <Link
               href="/contatti"
-              className="ml-3 px-4 py-2 bg-brand-orange hover:bg-brand-orange-dark text-white text-sm font-semibold rounded-md transition-colors"
+              className="ml-2 px-4 py-2 bg-brand-orange hover:bg-brand-orange-dark text-white text-sm font-semibold rounded-md transition-colors"
             >
               Contattaci
             </Link>
@@ -70,6 +79,15 @@ export default function Navbar() {
         {/* Mobile menu */}
         {open && (
           <div className="md:hidden border-t border-brand-gray py-3 space-y-1">
+            {/* Numero telefono mobile */}
+            <a
+              href={`tel:${COMPANY.contacts.phone.magazzino.tel}`}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 px-4 py-3 text-brand-orange font-semibold text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              {COMPANY.contacts.phone.magazzino.number}
+            </a>
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}

@@ -9,6 +9,7 @@ import {
   ShoppingBag,
 } from 'lucide-react'
 import { COMPANY, WHATSAPP_URL, EMAIL_MAILTO, MAPS_LINK } from '@/lib/constants'
+import ContactForm from '@/components/ui/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contatti e Dove Siamo',
@@ -202,8 +203,15 @@ export default function ContattiPage() {
               </div>
             </div>
 
-            {/* Right: Mappa */}
+            {/* Right: Form + Mappa */}
             <div className="flex flex-col gap-6">
+
+              {/* Form contatto */}
+              <div className="bg-brand-gray-dark border border-brand-gray rounded-2xl p-6">
+                <h2 className="text-white font-semibold text-xl mb-6">Invia una richiesta</h2>
+                <ContactForm />
+              </div>
+
               <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-brand-gray flex-1 min-h-[400px]">
                 <iframe
                   title="Mappa Autodemolizioni Pisanelli"

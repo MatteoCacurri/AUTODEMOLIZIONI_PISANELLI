@@ -1,15 +1,14 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { MessageCircle, Mail, Info } from 'lucide-react'
+import { MessageCircle, Mail, Info, ShieldCheck, RotateCcw, Headphones } from 'lucide-react'
 import CategoryGrid from '@/components/ricambi/CategoryGrid'
-import EbayBanner from '@/components/ricambi/EbayBanner'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { WHATSAPP_URL, EMAIL_MAILTO } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Ricambi',
+  title: 'Ricambi Usati Auto Moto Scooter - Gerano (Roma)',
   description:
-    'Ricambi usati e rigenerati per auto, moto e scooter di tutte le marche. Motori, cambi, carrozzeria, elettronica e molto altro. Autodemolizioni Pisanelli, Gerano (Roma).',
+    'Ricambi usati e rigenerati per auto, moto e scooter di tutte le marche. Motori, cambi, carrozzeria, elettronica e molto altro. Pezzi selezionati e garantiti. Autodemolizioni Pisanelli, Gerano (Roma).',
 }
 
 export default function RicambiPage() {
@@ -48,17 +47,47 @@ export default function RicambiPage() {
 
           <CategoryGrid />
 
-          {/* Disclaimer */}
-          <div className="mt-8 flex items-start gap-3 bg-brand-gray-dark/50 border border-brand-gray rounded-xl p-4">
+          {/* Garanzia */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex items-start gap-3 bg-brand-gray-dark border border-brand-gray rounded-xl p-4">
+              <ShieldCheck className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+              <div>
+                <div className="text-white text-sm font-semibold mb-0.5">Pezzo verificato</div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Ogni ricambio viene controllato dal nostro personale prima della consegna.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-brand-gray-dark border border-brand-gray rounded-xl p-4">
+              <RotateCcw className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+              <div>
+                <div className="text-white text-sm font-semibold mb-0.5">Reso concordato</div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Il pezzo non va bene? Contattaci: valutiamo insieme la soluzione migliore.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 bg-brand-gray-dark border border-brand-gray rounded-xl p-4">
+              <Headphones className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+              <div>
+                <div className="text-white text-sm font-semibold mb-0.5">Supporto pre-acquisto</div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Non sei sicuro della compatibilità? Ti aiutiamo a identificare il pezzo giusto.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Nota disponibilità */}
+          <div className="mt-4 flex items-start gap-3 bg-brand-gray-dark/50 border border-brand-gray rounded-xl p-4">
             <Info className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
             <p className="text-gray-400 text-sm">
-              Le categorie mostrate sono indicative. La disponibilità dei pezzi varia continuamente.
-              Contattaci direttamente per verificare la disponibilità del ricambio specifico che cerchi.
+              Non trovi la categoria che cerchi? Contattaci direttamente — spesso abbiamo il pezzo
+              anche se non è in lista. Il nostro magazzino si aggiorna ogni giorno.
             </p>
           </div>
 
-          {/* eBay Banner */}
-          <EbayBanner />
+          {/* TODO: aggiungere <EbayBanner /> quando il profilo eBay è attivo */}
         </div>
       </section>
 

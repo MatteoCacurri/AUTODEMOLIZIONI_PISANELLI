@@ -7,9 +7,9 @@ import SectionTitle from '@/components/ui/SectionTitle'
 import { WHATSAPP_URL, EMAIL_MAILTO, COMPANY } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Servizi',
+  title: 'Servizi Demolizione e Rottamazione Veicoli - Roma',
   description:
-    'Demolizione veicoli, cancellazione PRA, ritiro a domicilio, acquisto vetture incidentate, vendita ricambi e autovetture. Scopri tutti i servizi di Autodemolizioni Pisanelli.',
+    'Demolizione veicoli, cancellazione PRA, ritiro a domicilio gratuito, acquisto vetture incidentate e vendita ricambi usati. Impianto autorizzato. Autodemolizioni Pisanelli, Gerano (Roma).',
 }
 
 const WHY_US = [
@@ -96,7 +96,7 @@ export default function ServiziPage() {
             Hai bisogno di informazioni?
           </h2>
           <p className="text-gray-400 mb-8">
-            Contattaci direttamente su WhatsApp o via email. Risponderemo nel più breve tempo possibile.
+            Contattaci su WhatsApp o via email. Solitamente rispondiamo entro 30 minuti in orario lavorativo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
