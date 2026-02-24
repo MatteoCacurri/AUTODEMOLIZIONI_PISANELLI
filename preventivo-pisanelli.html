@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preventivo Sito Web – Autodemolizioni Pisanelli srl</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: #1a202c;
+      background: #f0f4f8;
+    }
+
+    .page-wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+    }
+
+    /* HEADER */
+    .doc-header {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      color: #fff;
+      padding: 2.5rem 3rem 2rem;
+      position: relative;
+    }
+    .doc-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #e05a00, #ff7a1a, #e05a00);
+    }
+    .header-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .agency-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ff7a1a;
+      letter-spacing: 0.04em;
+    }
+    .agency-sub {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 2px;
+    }
+    .agency-contact {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: #d1d5db;
+      line-height: 1.8;
+    }
+    .doc-meta { text-align: right; }
+    .doc-num {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+    .doc-title-main {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .doc-date { font-size: 0.82rem; color: #d1d5db; }
+    .doc-validity {
+      display: inline-block;
+      margin-top: 8px;
+      background: #ff7a1a;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .client-block {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #374151;
+      font-size: 0.82rem;
+    }
+    .client-block .label {
+      color: #9ca3af;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .client-block .client-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .client-block .client-info { color: #d1d5db; line-height: 1.8; }
+
+    /* CONTENT */
+    .content { padding: 2.5rem 3rem; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2.5rem 0 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .section-title:first-child { margin-top: 0; }
+    .title-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px; height: 30px;
+      background: #ff7a1a;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.75rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .section-title h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* SCOPE TABLE */
+    .scope-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+      margin-bottom: 1rem;
+    }
+    .scope-table thead tr {
+      background: #1f2937;
+      color: #fff;
+    }
+    .scope-table thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .scope-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+    .scope-table tbody tr:hover { background: #f8fafc; }
+    .scope-table td { padding: 10px 14px; vertical-align: top; }
+    .scope-table .col-cat { width: 20%; }
+    .scope-table .col-desc { width: 55%; }
+    .scope-table .col-status { width: 12%; text-align: center; }
+    .scope-table .col-pri { width: 13%; text-align: center; }
+
+    .cat-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7280;
+    }
+    .item-name { font-weight: 600; color: #111827; display: block; }
+    .item-desc { color: #6b7280; font-size: 0.78rem; line-height: 1.5; }
+
+    .status-done {
+      display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+      background: #d1fae5; color: #065f46; font-size: 0.72rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 20px;
+    }
+    .status-todo {
+      display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+      background: #fef3c7; color: #92400e; font-size: 0.72rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 20px;
+    }
+
+    .pri-high {
+      display: inline-block; background: #fee2e2; color: #991b1b;
+      font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+    }
+    .pri-med {
+      display: inline-block; background: #fef3c7; color: #92400e;
+      font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+    }
+    .pri-low {
+      display: inline-block; background: #dbeafe; color: #1e40af;
+      font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+    }
+
+    /* NOTE BOX */
+    .note-box {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem 1.2rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.82rem;
+      color: #78350f;
+      margin: 1rem 0;
+    }
+    .info-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem 1.2rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.82rem;
+      color: #1e40af;
+      margin: 1rem 0;
+    }
+
+    /* PAGE BREAK */
+    .page-break { page-break-after: always; }
+
+    /* PRICING MODELS */
+    .pricing-model {
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .pricing-model.featured {
+      border-color: #ff7a1a;
+      box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.12);
+    }
+    .model-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      color: #fff;
+    }
+    .m1 .model-header, .model-header.m1 { background: #1f2937; }
+    .m2 .model-header, .model-header.m2 { background: #1e3a5f; }
+    .m3 .model-header, .model-header.m3 { background: #7c2d12; }
+    .pricing-model.featured .model-header { background: linear-gradient(135deg, #c2410c, #ea580c); }
+
+    .model-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(255,255,255,0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .featured .model-badge {
+      background: rgba(255,255,255,0.3);
+    }
+    .model-name { font-size: 1.1rem; font-weight: 800; }
+    .model-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.8); margin-top: 4px; }
+    .model-price-block { text-align: right; }
+    .model-price { font-size: 2rem; font-weight: 900; }
+    .model-price-sub { font-size: 0.78rem; color: rgba(255,255,255,0.8); }
+
+    .model-body { padding: 1.5rem 2rem; }
+    .desc-text { color: #4b5563; font-size: 0.85rem; margin-bottom: 1.2rem; line-height: 1.7; }
+
+    .proscons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .proscons-col { background: #f9fafb; border-radius: 8px; padding: 1rem; }
+    .proscons-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+    }
+    .proscons-title.pro { color: #065f46; }
+    .proscons-title.con { color: #991b1b; }
+    .pro-list, .con-list { padding-left: 1.2rem; font-size: 0.8rem; color: #374151; }
+    .pro-list li, .con-list li { margin-bottom: 3px; }
+    .pro-list li::marker { color: #10b981; }
+    .con-list li::marker { color: #ef4444; }
+
+    .includes-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #374151;
+      margin-bottom: 0.7rem;
+    }
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 1.2rem;
+    }
+    .includes-item {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .includes-item::before { content: "✓"; font-weight: 700; color: #16a34a; }
+
+    .payment-detail {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      font-size: 0.82rem;
+      color: #374151;
+      line-height: 1.8;
+    }
+
+    /* COMPARE TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
+    }
+    .compare-table th {
+      padding: 10px 12px;
+      text-align: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .compare-table .hlabel { background: #f1f5f9; text-align: left; color: #374151; }
+    .compare-table .h1 { background: #1f2937; color: #fff; }
+    .compare-table .h2 { background: #1e3a5f; color: #fff; }
+    .compare-table .h3 { background: #c2410c; color: #fff; }
+    .compare-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: center;
+      color: #374151;
+    }
+    .compare-table td:first-child { text-align: left; font-weight: 500; }
+    .compare-table tr:hover td { background: #f8fafc; }
+    .price-cell { font-weight: 700; color: #111827; }
+    .check { color: #16a34a; font-weight: 700; font-size: 1rem; }
+    .cross { color: #dc2626; font-weight: 700; font-size: 1rem; }
+    .partial { color: #d97706; font-weight: 600; font-size: 0.78rem; }
+
+    /* TIMELINE */
+    .timeline { margin: 1rem 0 1.5rem; }
+    .timeline-item {
+      display: flex;
+      gap: 1rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #e2e8f0;
+      align-items: flex-start;
+    }
+    .timeline-num {
+      width: 32px; height: 32px;
+      background: #ff7a1a;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.78rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-num.done { background: #16a34a; }
+    .timeline-content {}
+    .timeline-phase {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+    }
+    .timeline-title { font-weight: 700; color: #111827; font-size: 0.9rem; }
+    .timeline-desc { font-size: 0.8rem; color: #6b7280; margin-top: 2px; }
+    .timeline-duration {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #ff7a1a;
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    /* LEGAL */
+    .legal-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      font-size: 0.8rem;
+      color: #4b5563;
+      line-height: 1.9;
+    }
+
+    /* SIGNATURE */
+    .signature-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+    .sig-block {}
+    .sig-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+    }
+    .sig-line {
+      border-top: 2px solid #1f2937;
+      padding-top: 0.5rem;
+      font-size: 0.82rem;
+      color: #374151;
+      line-height: 1.7;
+    }
+    .choice-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0 2rem;
+      font-size: 0.85rem;
+    }
+    .choice-row { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .choice-row input[type=checkbox] { width: 16px; height: 16px; }
+
+    /* FOOTER */
+    .doc-footer {
+      background: #1f2937;
+      color: #9ca3af;
+      text-align: center;
+      font-size: 0.72rem;
+      padding: 1rem 2rem;
+      line-height: 1.8;
+    }
+
+    /* TOTALE HIGHLIGHT */
+    .total-row td { background: #1f2937 !important; color: #fff !important; font-weight: 700; }
+    .total-row .price-cell { color: #ff7a1a !important; font-size: 1rem; }
+
+    @media print {
+      body { background: #fff; }
+      .page-wrapper { box-shadow: none; }
+      .page-break { page-break-after: always; }
+      .pricing-model { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="header-grid">
+      <div>
+        <div class="agency-name">MCLAB</div>
+        <div class="agency-sub">Sviluppo Web · SEO · Consulenza Digitale</div>
+      </div>
+      <div class="doc-meta">
+        <div class="doc-num">Preventivo N° 001 / 2026</div>
+        <div class="doc-title-main">Realizzazione Sito Web Professionale</div>
+        <div class="doc-date">Emesso il 25 Febbraio 2026</div>
+        <div class="doc-validity">Valido fino al 27 Marzo 2026</div>
+      </div>
+    </div>
+    <div class="client-block">
+      <div class="label">Destinatario</div>
+      <div class="client-name">Autodemolizioni Pisanelli srl</div>
+      <div class="client-info">
+        Via della Mola snc · 00025 Gerano (RM) · P.IVA: [inserire]
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- SEZIONE 1: INTRODUZIONE -->
+    <div class="section-title">
+      <span class="title-num">01</span>
+      <h2>Oggetto e Descrizione del Progetto</h2>
+    </div>
+
+    <p style="color:#4b5563;font-size:0.88rem;line-height:1.8;margin-bottom:1rem;">
+      Il presente preventivo riguarda la <strong>realizzazione completa del sito web istituzionale</strong> di Autodemolizioni Pisanelli srl, comprensivo di tutte le fasi: progettazione, sviluppo frontend, implementazione backend, conformità GDPR, ottimizzazione SEO, messa in produzione e configurazione dei servizi necessari per portare il sito online in modo professionale e sicuro.
+    </p>
+    <div class="info-box">
+      <strong>Nota:</strong> Il progetto è attualmente in fase avanzata. Una parte significativa del lavoro di sviluppo frontend è già stata completata (design, struttura pagine, contenuti, SEO base). Il preventivo include <strong>l'intero valore del progetto</strong> dalla A alla Z, comprendendo il lavoro già svolto e quello ancora da completare per il go-live.
+    </div>
+
+    <!-- SEZIONE 2: SCOPE OF WORK COMPLETO -->
+    <div class="section-title">
+      <span class="title-num">02</span>
+      <h2>Scope of Work — Tutto il Progetto</h2>
+    </div>
+
+    <p style="color:#4b5563;font-size:0.85rem;margin-bottom:1rem;">
+      La tabella seguente elenca <strong>tutte le attività previste</strong> per la realizzazione completa del sito.
+      Le voci con stato <span class="status-done">✓ Completato</span> sono già pronte;
+      quelle con stato <span class="status-todo">⏳ Da fare</span> saranno realizzate prima del go-live.
+    </p>
+
+    <table class="scope-table">
+      <thead>
+        <tr>
+          <th class="col-cat">Categoria</th>
+          <th class="col-desc">Attività</th>
+          <th class="col-status">Stato</th>
+          <th class="col-pri">Priorità</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- FRONTEND DONE -->
+        <tr>
+          <td><span class="cat-label">Design</span><span class="item-name">UI/UX Design completo</span></td>
+          <td><span class="item-desc">Sistema di design dark brand (colori, tipografia, spaziature), componenti riutilizzabili, design responsive mobile-first. Brand coerente con identità aziendale Pisanelli.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Frontend</span><span class="item-name">Homepage completa</span></td>
+          <td><span class="item-desc">Hero section con foto, TrustBar con 5 indicatori di fiducia, sezione About, anteprima servizi, form ricerca ricambio rapido, sezione recensioni, galleria foto. CTA ottimizzate per conversione.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Frontend</span><span class="item-name">Pagina Rottamazione</span></td>
+          <td><span class="item-desc">Hero con foto, processo 4 step visuale, veicoli accettati, documenti necessari, cosa viene rilasciato, form di richiesta ritiro con WhatsApp alternativo.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Frontend</span><span class="item-name">Pagina Servizi</span></td>
+          <td><span class="item-desc">Griglia servizi completa con icone, sezione "Perché sceglierci" con 3 punti di forza, CTA finale con WhatsApp ed email. Hero con foto dell'impianto.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Frontend</span><span class="item-name">Pagina Ricambi</span></td>
+          <td><span class="item-desc">Hero con foto showroom, griglia categorie ricambi, 3 card garanzia (Pezzo verificato, Reso concordato, Supporto pre-acquisto), CTA WhatsApp ed email. Nota disponibilità.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Frontend</span><span class="item-name">Pagina FAQ</span></td>
+          <td><span class="item-desc">11 domande/risposte in 2 categorie (Rottamazione e Ricambi), accordion interattivo, JSON-LD FAQPage per Google rich snippet. Hero con foto magazzino.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Frontend</span><span class="item-name">Pagina Contatti</span></td>
+          <td><span class="item-desc">Hero con foto panoramica, scheda info con telefoni/email/orari, form di contatto, mappa Google Maps integrata, link WhatsApp e social. Hero con foto.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Navigazione</span><span class="item-name">Navbar + Footer</span></td>
+          <td><span class="item-desc">Navbar sticky con logo reale, menu mobile hamburger, numero di telefono in evidenza (verde), tasto CTA "Contattaci". Footer con link rapidi, contatti, orari, social.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">SEO Base</span><span class="item-name">Metadata + Schema Markup</span></td>
+          <td><span class="item-desc">Title e description ottimizzati per ogni pagina, Open Graph, JSON-LD LocalBusiness + AutoPartsStore + FAQPage per rich snippet Google, keyword strategy locale (Gerano, Roma, provincia).</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">UX</span><span class="item-name">WhatsApp Float Button</span></td>
+          <td><span class="item-desc">Pulsante WhatsApp fisso in basso a destra visibile su tutte le pagine, con link diretto alla chat aziendale. Fondamentale per conversione mobile.</span></td>
+          <td><span class="status-done">✓ Fatto</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+
+        <!-- DA FARE -->
+        <tr>
+          <td><span class="cat-label">Backend</span><span class="item-name">Form contatti funzionante</span></td>
+          <td><span class="item-desc">Implementazione API Route Next.js per l'invio reale delle email tramite Resend o SendGrid. Validazione server-side, anti-spam honeypot, email di conferma automatica al cliente. L'attuale implementazione mailto: non invia automaticamente.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">GDPR</span><span class="item-name">Cookie Banner conforme</span></td>
+          <td><span class="item-desc">Banner cookie GDPR con gestione consenso per categorie (necessari, analytics, marketing). Integrazione con Consent Mode v2 di Google per GA4. Obbligatorio per legge in Italia.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">GDPR</span><span class="item-name">Privacy Policy + Cookie Policy</span></td>
+          <td><span class="item-desc">Pagine legali conformi al GDPR (Reg. UE 2016/679): informativa sul trattamento dati, tipologie di dati raccolti, diritti dell'interessato, Cookie Policy con elenco cookie. Obbligatorio per legge.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">SEO Tecnico</span><span class="item-name">Sitemap XML + robots.txt</span></td>
+          <td><span class="item-desc">Generazione automatica sitemap.xml con tutte le pagine e priorità, file robots.txt per istruire i crawler. Indispensabile per l'indicizzazione corretta su Google.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Analytics</span><span class="item-name">Google Analytics 4</span></td>
+          <td><span class="item-desc">Configurazione GA4 con rispetto del consenso cookie (Consent Mode v2), tracciamento clic telefono, WhatsApp, form, configurazione conversioni principali, report mensile incluso nei piani a canone.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">SEO</span><span class="item-name">Google Search Console</span></td>
+          <td><span class="item-desc">Verifica proprietà sito, invio sitemap, monitoraggio indicizzazione e query di ricerca, correzione errori di crawling. Setup fondamentale per controllare la visibilità su Google.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Hosting</span><span class="item-name">Deploy + DNS + SSL</span></td>
+          <td><span class="item-desc">Deploy su Vercel (piattaforma ottimizzata Next.js), configurazione DNS sul dominio aziendale, certificato SSL automatico (HTTPS), variabili d'ambiente sicure per chiavi API.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-high">Essenziale</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Sicurezza</span><span class="item-name">Security Headers</span></td>
+          <td><span class="item-desc">Configurazione header HTTP di sicurezza in next.config.ts: Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy. Target: score A su securityheaders.com.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-med">Importante</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Performance</span><span class="item-name">Ottimizzazione immagini</span></td>
+          <td><span class="item-desc">Conversione foto in formato WebP/AVIF (riduzione peso 60-80%), configurazione next/image con dimensioni esplicite, placeholder blur per LCP migliore, lazy loading ottimizzato.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-med">Importante</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">UX</span><span class="item-name">Pagina 404 personalizzata</span></td>
+          <td><span class="item-desc">Pagina not-found.tsx brandizzata con logo, messaggio chiaro e link di ritorno alle sezioni principali. Evita il rimbalzo degli utenti su URL errati o link scaduti.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-med">Importante</span></td>
+        </tr>
+        <tr>
+          <td><span class="cat-label">Test</span><span class="item-name">QA cross-browser e mobile</span></td>
+          <td><span class="item-desc">Test su Chrome, Safari, Firefox, Edge. Test su iPhone e Android. Verifica funzionamento form, link, immagini, performance (Core Web Vitals). Correzione eventuali anomalie.</span></td>
+          <td><span class="status-todo">⏳ Da fare</span></td>
+          <td><span class="pri-med">Importante</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <strong>Riepilogo rapido:</strong> 10 attività già completate (frontend, design, SEO base, WhatsApp) · 11 attività ancora da realizzare prima del go-live (backend, GDPR, deploy, analytics, sicurezza, performance, test).
+    </div>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <!-- SEZIONE 3: PREVENTIVI -->
+    <div class="section-title">
+      <span class="title-num">03</span>
+      <h2>Proposte di Preventivo — 3 Modelli di Pagamento</h2>
+    </div>
+
+    <p style="color:#4b5563;font-size:0.85rem;margin-bottom:1.5rem;">
+      Tutti e tre i modelli includono <strong>l'intero valore del progetto</strong>: design, sviluppo frontend già realizzato, completamento backend, GDPR, SEO tecnico, deploy e messa online. La differenza è solo nelle modalità e tempistiche di pagamento.
+    </p>
+
+    <!-- MODELLO 1 -->
+    <div class="pricing-model">
+      <div class="model-header m1">
+        <div>
+          <div class="model-badge">Modello 1</div>
+          <div class="model-name">UNA TANTUM — Pagamento Unico</div>
+          <div class="model-tagline">Saldo completo del progetto in un'unica soluzione. Nessun impegno mensile.</div>
+        </div>
+        <div class="model-price-block">
+          <div class="model-price">€ 2.200</div>
+          <div class="model-price-sub">totale progetto + IVA</div>
+        </div>
+      </div>
+      <div class="model-body">
+        <div class="desc-text">
+          Pagamento dell'intero progetto in un'unica soluzione: 50% alla firma del contratto, 50% al momento del go-live. Il prezzo include tutto il lavoro svolto e quello da svolgere per portare il sito online. Dopo la consegna, il cliente gestisce autonomamente hosting e dominio (o può aggiungere il canone di manutenzione opzionale a €59/mese).
+        </div>
+        <div class="proscons">
+          <div class="proscons-col">
+            <div class="proscons-title pro">Vantaggi</div>
+            <ul class="pro-list">
+              <li>Costo totale più basso nel lungo periodo</li>
+              <li>Nessun impegno mensile continuativo</li>
+              <li>Proprietà completa del sito dal primo giorno</li>
+              <li>Ideale se si vuole gestire l'hosting internamente</li>
+            </ul>
+          </div>
+          <div class="proscons-col">
+            <div class="proscons-title con">Svantaggi</div>
+            <ul class="con-list">
+              <li>Esborso iniziale più elevato in una volta</li>
+              <li>Manutenzione e aggiornamenti futuri non inclusi</li>
+              <li>Hosting/dominio a carico del cliente</li>
+            </ul>
+          </div>
+        </div>
+        <div class="includes-title">Cosa include (progetto completo)</div>
+        <div class="includes-grid">
+          <span class="includes-item">Design UI/UX completo</span>
+          <span class="includes-item">6 pagine sviluppate</span>
+          <span class="includes-item">Navbar, Footer, componenti</span>
+          <span class="includes-item">SEO base + Schema markup</span>
+          <span class="includes-item">WhatsApp float button</span>
+          <span class="includes-item">Backend form (email reale)</span>
+          <span class="includes-item">Privacy Policy GDPR</span>
+          <span class="includes-item">Cookie Banner conforme</span>
+          <span class="includes-item">Sitemap XML + robots.txt</span>
+          <span class="includes-item">Google Analytics 4</span>
+          <span class="includes-item">Google Search Console</span>
+          <span class="includes-item">Deploy + DNS + SSL</span>
+          <span class="includes-item">Security Headers</span>
+          <span class="includes-item">Ottimizzazione immagini</span>
+          <span class="includes-item">Test QA cross-browser</span>
+          <span class="includes-item">Pagina 404 personalizzata</span>
+          <span class="includes-item">30 gg supporto post-lancio</span>
+          <span class="includes-item">Consegna codice sorgente</span>
+        </div>
+        <div class="payment-detail">
+          <strong>Modalità di pagamento:</strong> €1.100 alla firma del contratto + €1.100 al go-live del sito.<br>
+          <strong>Non include:</strong> Costo annuo dominio (~€15-30/anno), hosting post-lancio (Vercel gratis per siti statici, oppure ~€20-50/mese per VPS), email aziendale (opzionale, ~€6/mese con Google Workspace).<br>
+          <strong>Manutenzione opzionale:</strong> disponibile a €59/mese (aggiornamenti, backup, supporto, hosting).
+        </div>
+      </div>
+    </div>
+
+    <!-- MODELLO 2 -->
+    <div class="pricing-model">
+      <div class="model-header m2">
+        <div>
+          <div class="model-badge">Modello 2</div>
+          <div class="model-name">ACCONTO + CANONE MENSILE</div>
+          <div class="model-tagline">Acconto iniziale ridotto + canone mensile tutto incluso per 12 mesi.</div>
+        </div>
+        <div class="model-price-block">
+          <div class="model-price">€ 800</div>
+          <div class="model-price-sub">acconto + € 79/mese + IVA</div>
+        </div>
+      </div>
+      <div class="model-body">
+        <div class="desc-text">
+          Acconto iniziale ridotto per abbassare la barriera d'ingresso. Il canone mensile copre il completamento del progetto (già avviato) più hosting, manutenzione e supporto continuativo. Contratto minimo 12 mesi, rinnovabile mese per mese. Il sito rimane di proprietà del cliente in caso di recesso con consegna del codice sorgente.
+        </div>
+        <div class="proscons">
+          <div class="proscons-col">
+            <div class="proscons-title pro">Vantaggi</div>
+            <ul class="pro-list">
+              <li>Investimento iniziale contenuto (€800)</li>
+              <li>Hosting, SSL e dominio inclusi nel canone</li>
+              <li>Supporto tecnico continuativo incluso</li>
+              <li>Aggiornamenti di sicurezza automatici</li>
+              <li>Report analytics mensile incluso</li>
+              <li>Costo prevedibile e fiscalmente deducibile</li>
+            </ul>
+          </div>
+          <div class="proscons-col">
+            <div class="proscons-title con">Svantaggi</div>
+            <ul class="con-list">
+              <li>Costo totale più alto rispetto al Modello 1 sul lungo periodo</li>
+              <li>Impegno contrattuale minimo 12 mesi</li>
+              <li>Totale Anno 1: €1.748</li>
+            </ul>
+          </div>
+        </div>
+        <div class="includes-title">Cosa include il canone mensile (€ 79/mese)</div>
+        <div class="includes-grid">
+          <span class="includes-item">Tutto il progetto completo</span>
+          <span class="includes-item">Hosting Vercel incluso</span>
+          <span class="includes-item">Dominio .it incluso</span>
+          <span class="includes-item">Certificato SSL always-on</span>
+          <span class="includes-item">Aggiornamenti dipendenze</span>
+          <span class="includes-item">Backup mensile codice</span>
+          <span class="includes-item">Monitoraggio uptime 24/7</span>
+          <span class="includes-item">Report analytics mensile</span>
+          <span class="includes-item">Supporto email entro 24h</span>
+          <span class="includes-item">1 ora/mese modifiche contenuti</span>
+        </div>
+        <div class="payment-detail">
+          <strong>Riepilogo costi:</strong><br>
+          Acconto una tantum: <strong>€800 + IVA</strong> alla firma · Canone mensile: <strong>€79/mese + IVA</strong> dal go-live<br>
+          Totale Anno 1 (acconto + 12 mesi): <strong>€1.748 + IVA</strong><br>
+          Dal 2° anno in poi: <strong>€948/anno</strong> (se si rinnova)<br>
+          <strong>Recesso:</strong> 30 giorni di preavviso dopo il 12° mese. Codice sorgente consegnato al cliente.
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SEZIONE 4: TABELLA COMPARATIVA -->
+    <div class="section-title">
+      <span class="title-num">04</span>
+      <h2>Tabella Comparativa dei 2 Modelli</h2>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="hlabel">Caratteristica</th>
+          <th class="h1">Modello 1<br>Una Tantum</th>
+          <th class="h2">Modello 2<br>Acconto + Canone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Costo iniziale</td>
+          <td class="price-cell">€ 2.200</td>
+          <td class="price-cell">€ 800</td>
+        </tr>
+        <tr>
+          <td>Canone mensile</td>
+          <td>— (opz. €59/mese)</td>
+          <td class="price-cell">€ 79/mese</td>
+        </tr>
+        <tr>
+          <td>Costo totale Anno 1</td>
+          <td class="price-cell">€ 2.200</td>
+          <td class="price-cell">€ 1.748</td>
+        </tr>
+        <tr>
+          <td>Costo totale Anno 2</td>
+          <td>~€ 240 (hosting)</td>
+          <td class="price-cell">€ 948</td>
+        </tr>
+        <tr>
+          <td>Costo totale su 3 anni</td>
+          <td class="price-cell">~€ 2.680</td>
+          <td class="price-cell">~€ 3.644</td>
+        </tr>
+        <tr>
+          <td>Durata min. contratto</td>
+          <td>Nessuna</td>
+          <td>12 mesi</td>
+        </tr>
+        <tr>
+          <td>Progetto completo incluso</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>GDPR (Cookie, Privacy Policy)</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Hosting + Dominio inclusi</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Manutenzione tecnica mensile</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Report analytics</td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="partial">Mensile</span></td>
+        </tr>
+        <tr>
+          <td>Supporto post-lancio</td>
+          <td><span class="partial">30 giorni</span></td>
+          <td><span class="partial">Email entro 24h</span></td>
+        </tr>
+        <tr>
+          <td>Proprietà codice sorgente</td>
+          <td><span class="check">✓ Immediata</span></td>
+          <td><span class="check">✓ A recesso</span></td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Convenienza nel lungo periodo</strong></td>
+          <td class="price-cell">⭐⭐⭐ Più economico</td>
+          <td class="price-cell">⭐⭐ Tutto incluso</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SEZIONE 5: TEMPISTICHE -->
+    <div class="section-title">
+      <span class="title-num">05</span>
+      <h2>Tempistiche Stimate — Dal Contratto al Go-Live</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-num done">✓</div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Fase 1 — Completata</div>
+          <div class="timeline-title">Design + Sviluppo Frontend</div>
+          <div class="timeline-desc">Design UI/UX, 6 pagine complete, navbar, footer, SEO base, schema markup, WhatsApp button, responsive mobile.</div>
+        </div>
+        <div class="timeline-duration">Già fatto</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">2</div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Fase 2 — Da fare (post firma)</div>
+          <div class="timeline-title">Backend, GDPR e Sicurezza</div>
+          <div class="timeline-desc">API form contatti con invio email reale, Privacy Policy, Cookie Banner conforme, Cookie Policy, Security Headers.</div>
+        </div>
+        <div class="timeline-duration">3–5 gg</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">3</div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Fase 3 — Da fare</div>
+          <div class="timeline-title">SEO Tecnico + Performance</div>
+          <div class="timeline-desc">Sitemap XML, robots.txt, ottimizzazione immagini WebP, pagina 404, canonical URL, OG image personalizzata.</div>
+        </div>
+        <div class="timeline-duration">2–3 gg</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">4</div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Fase 4 — Da fare</div>
+          <div class="timeline-title">Deploy + Analytics + Test</div>
+          <div class="timeline-desc">Deploy su Vercel, configurazione DNS/SSL, setup GA4 e Google Search Console, test cross-browser e mobile, verifica form.</div>
+        </div>
+        <div class="timeline-duration">3–4 gg</div>
+      </div>
+      <div class="timeline-item" style="border-bottom:none;">
+        <div class="timeline-num" style="background:#16a34a;">🚀</div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Go-Live</div>
+          <div class="timeline-title">Sito Online</div>
+          <div class="timeline-desc">Sito pubblicato, sitemap inviata a Google, comunicazione ufficiale avvenuta.</div>
+        </div>
+        <div class="timeline-duration" style="color:#16a34a;font-weight:800;">~10 gg totali</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Tempistica totale stimata:</strong> 8–12 giorni lavorativi dalla firma del contratto, salvo ritardi nella fornitura di accessi (dominio, credenziali) o revisioni da parte del cliente.
+    </div>
+
+    <!-- SEZIONE 6: NOTE LEGALI -->
+    <div class="section-title">
+      <span class="title-num">06</span>
+      <h2>Note Legali e Condizioni Generali</h2>
+    </div>
+
+    <div class="legal-box">
+      <strong>Validità offerta:</strong> Il presente preventivo ha validità 30 giorni dalla data di emissione (scade il 27 Marzo 2026).<br><br>
+      <strong>Prezzi:</strong> Tutti i prezzi si intendono al netto di IVA (22%). La fatturazione avverrà secondo le modalità concordate nel contratto firmato.<br><br>
+      <strong>Proprietà intellettuale:</strong> Il codice sorgente, i contenuti e i materiali grafici forniti dal cliente sono di proprietà del cliente. Il lavoro di sviluppo diventa di piena proprietà del cliente al saldo completo (Modello 1) o alla scadenza/recesso del contratto (Modelli 2 e 3) con consegna del codice sorgente.<br><br>
+      <strong>Contenuti:</strong> Il cliente si impegna a fornire tempestivamente informazioni aggiornate (es. eventuali nuovi dati aziendali, accesso al dominio). Ritardi nella fornitura possono influire sui tempi di consegna.<br><br>
+      <strong>GDPR:</strong> I testi legali (Privacy Policy, Cookie Policy) sono redatti con cura professionale sulla base della normativa vigente ma non costituiscono consulenza legale certificata. Per volumi elevati di trattamento dati si consiglia revisione da parte di un DPO o avvocato specializzato.<br><br>
+      <strong>Esclusioni:</strong> Non inclusi: campagne pubblicitarie a pagamento (Google Ads, Meta Ads), registrazione marchi, consulenza fiscale o legale, sviluppo e-commerce o aree riservate, traduzioni in altre lingue — salvo accordi separati scritti.<br><br>
+      <strong>Recesso Modelli 2 e 3:</strong> Il recesso anticipato prima del termine minimo comporta il saldo delle mensilità residue fino al termine minimo contrattuale, salvo diversa condizione concordata per iscritto.
+    </div>
+
+    <!-- SEZIONE 7: FIRMA -->
+    <div class="section-title">
+      <span class="title-num">07</span>
+      <h2>Accettazione del Preventivo e Scelta Modello</h2>
+    </div>
+
+    <p style="font-size:0.82rem;color:#4b5563;margin-bottom:1rem;">
+      Il sottoscritto, in qualità di legale rappresentante di Autodemolizioni Pisanelli srl, dichiara di aver letto e accettato le condizioni del presente preventivo e sceglie il seguente modello di pagamento:
+    </p>
+
+    <div class="choice-box">
+      <div class="choice-row">
+        <span style="font-size:1.2rem;">☐</span>
+        <span><strong>Modello 1 — Una Tantum</strong> &nbsp; €2.200 + IVA (50% alla firma + 50% al go-live)</span>
+      </div>
+      <div class="choice-row">
+        <span style="font-size:1.2rem;">☐</span>
+        <span><strong>Modello 2 — Acconto + Canone</strong> &nbsp; €800 acconto + €79/mese + IVA (min. 12 mesi)</span>
+      </div>
+    </div>
+
+    <div class="signature-section">
+      <div class="sig-block">
+        <div class="sig-label">Timbro e firma del Cliente</div>
+        <div class="sig-line">
+          Autodemolizioni Pisanelli srl<br>
+          <span style="color:#9ca3af;font-size:0.75rem;">Data: ___________________</span>
+        </div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-label">Firma del Fornitore</div>
+        <div class="sig-line">
+          MCLAB<br>
+          <span style="color:#9ca3af;font-size:0.75rem;">Data: 25 Febbraio 2026</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <footer class="doc-footer">
+    Preventivo N° 001/2026 &nbsp;·&nbsp; MCLAB per Autodemolizioni Pisanelli srl &nbsp;·&nbsp; Gerano (Roma) &nbsp;·&nbsp; Emesso il 25 Febbraio 2026 &nbsp;·&nbsp; Validità 30 giorni<br>
+    Tutti i prezzi sono da intendersi + IVA 22% salvo diversa indicazione &nbsp;·&nbsp; Documento riservato e strettamente confidenziale.
+  </footer>
+
+</div>
+</body>
+</html>
