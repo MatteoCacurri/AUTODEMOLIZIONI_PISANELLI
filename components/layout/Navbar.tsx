@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu, X, Cog, Phone } from 'lucide-react'
+import { Menu, X, Phone } from 'lucide-react'
 import { COMPANY } from '@/lib/constants'
 
 const NAV_LINKS = [
@@ -26,14 +27,15 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
-            <div className="flex items-center justify-center w-9 h-9 bg-brand-orange rounded-md group-hover:bg-brand-orange-dark transition-colors">
-              <Cog className="w-5 h-5 text-white" />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-brand-orange font-bold text-base tracking-wide">AP</span>
-              <span className="text-white text-[10px] tracking-widest uppercase">Pisanelli</span>
-            </div>
+          <Link href="/" onClick={() => setOpen(false)}>
+            <Image
+              src="/images/logo-navbar.png"
+              alt="Autodemolizioni Pisanelli"
+              width={264}
+              height={32}
+              className="h-9 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop links */}
