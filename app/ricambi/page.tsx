@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { MessageCircle, Mail, Info, ShieldCheck, RotateCcw, Headphones } from 'lucide-react'
 import CategoryGrid from '@/components/ricambi/CategoryGrid'
+import EbayBanner from '@/components/ricambi/EbayBanner'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { WHATSAPP_URL, EMAIL_MAILTO } from '@/lib/constants'
 
@@ -87,9 +88,11 @@ export default function RicambiPage() {
             </p>
           </div>
 
-          {/* TODO: aggiungere <EbayBanner /> quando il profilo eBay è attivo */}
         </div>
       </section>
+
+      {/* eBay Store */}
+      <EbayBanner />
 
       {/* CTA */}
       <section className="bg-brand-gray-dark py-16">

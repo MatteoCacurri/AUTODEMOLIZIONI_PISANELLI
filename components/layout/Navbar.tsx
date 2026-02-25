@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu, X, Phone } from 'lucide-react'
-import { COMPANY } from '@/lib/constants'
+import { Menu, X, Phone, ExternalLink } from 'lucide-react'
+import { COMPANY, EBAY_STORE_URL } from '@/lib/constants'
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -53,6 +53,32 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            {/* Link Negozio eBay desktop */}
+            {EBAY_STORE_URL ? (
+              <a
+                href={EBAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-1 inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-semibold text-[#3665f3] hover:bg-[#3665f3]/10 transition-colors"
+              >
+                <span>
+                  <span style={{ color: '#e53238' }}>e</span>
+                  <span style={{ color: '#0064d2' }}>b</span>
+                  <span style={{ color: '#f5af02' }}>a</span>
+                  <span style={{ color: '#86b817' }}>y</span>
+                </span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            ) : (
+              <span className="ml-1 inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-semibold text-gray-500 cursor-not-allowed select-none">
+                <span>
+                  <span style={{ color: '#e53238' }}>e</span>
+                  <span style={{ color: '#0064d2' }}>b</span>
+                  <span style={{ color: '#f5af02' }}>a</span>
+                  <span style={{ color: '#86b817' }}>y</span>
+                </span>
+              </span>
+            )}
             <a
               href={`tel:${COMPANY.contacts.phone.magazzino.tel}`}
               className="ml-3 hidden lg:flex items-center gap-1.5 text-[#25D366] hover:text-[#1ebe57] text-sm font-semibold transition-colors"
@@ -60,12 +86,6 @@ export default function Navbar() {
               <Phone className="w-3.5 h-3.5" />
               {COMPANY.contacts.phone.magazzino.number}
             </a>
-            <Link
-              href="/contatti"
-              className="ml-2 px-4 py-2 bg-brand-orange hover:bg-brand-orange-dark text-white text-sm font-semibold rounded-md transition-colors"
-            >
-              Contattaci
-            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -104,13 +124,36 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contatti"
-              onClick={() => setOpen(false)}
-              className="block mt-2 px-4 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white text-sm font-semibold rounded-md transition-colors text-center"
-            >
-              Contattaci
-            </Link>
+            {/* Link Negozio eBay mobile */}
+            {EBAY_STORE_URL ? (
+              <a
+                href={EBAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between px-4 py-3 rounded-md text-sm font-semibold text-[#3665f3] hover:bg-[#3665f3]/10 transition-colors"
+              >
+                <span>
+                  Negozio{' '}
+                  <span style={{ color: '#e53238' }}>e</span>
+                  <span style={{ color: '#0064d2' }}>b</span>
+                  <span style={{ color: '#f5af02' }}>a</span>
+                  <span style={{ color: '#86b817' }}>y</span>
+                </span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            ) : (
+              <span className="flex items-center justify-between px-4 py-3 rounded-md text-sm font-semibold text-gray-500 cursor-not-allowed select-none">
+                <span>
+                  Negozio{' '}
+                  <span style={{ color: '#e53238' }}>e</span>
+                  <span style={{ color: '#0064d2' }}>b</span>
+                  <span style={{ color: '#f5af02' }}>a</span>
+                  <span style={{ color: '#86b817' }}>y</span>
+                </span>
+                <span className="text-xs text-gray-600">Prossimamente</span>
+              </span>
+            )}
           </div>
         )}
       </nav>

@@ -32,6 +32,7 @@ export const COMPANY = {
   },
 } as const
 
+export const EBAY_STORE_URL: string | null = null // aggiornare con URL del negozio eBay quando attivo
 export const WHATSAPP_URL = 'https://wa.me/393349025620'
 export const EMAIL_MAILTO = `mailto:${COMPANY.contacts.email}`
 export const MAPS_EMBED_URL =
