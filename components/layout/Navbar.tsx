@@ -105,7 +105,7 @@ export default function Navbar() {
             <a
               href={`tel:${COMPANY.contacts.phone.magazzino.tel}`}
               onClick={() => setOpen(false)}
-              className="flex items-center gap-2 px-4 py-3 text-brand-orange font-semibold text-sm"
+              className="flex items-center gap-2 px-4 py-3 text-[#25D366] font-semibold text-sm"
             >
               <Phone className="w-4 h-4" />
               {COMPANY.contacts.phone.magazzino.number}
