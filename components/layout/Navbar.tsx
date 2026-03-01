@@ -80,11 +80,11 @@ export default function Navbar() {
               </span>
             )}
             <a
-              href={`tel:${COMPANY.contacts.phone.magazzino.tel}`}
+              href={`tel:${COMPANY.contacts.phone.tiziano.tel}`}
               className="ml-3 hidden lg:flex items-center gap-1.5 text-[#25D366] hover:text-[#1ebe57] text-sm font-semibold transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
-              {COMPANY.contacts.phone.magazzino.number}
+              {COMPANY.contacts.phone.tiziano.number}
             </a>
           </div>
 
@@ -103,12 +103,12 @@ export default function Navbar() {
           <div className="md:hidden border-t border-brand-gray py-3 space-y-1">
             {/* Numero telefono mobile */}
             <a
-              href={`tel:${COMPANY.contacts.phone.magazzino.tel}`}
+              href={`tel:${COMPANY.contacts.phone.tiziano.tel}`}
               onClick={() => setOpen(false)}
               className="flex items-center gap-2 px-4 py-3 text-[#25D366] font-semibold text-sm"
             >
               <Phone className="w-4 h-4" />
-              {COMPANY.contacts.phone.magazzino.number}
+              {COMPANY.contacts.phone.tiziano.number}
             </a>
             {NAV_LINKS.map((link) => (
               <Link

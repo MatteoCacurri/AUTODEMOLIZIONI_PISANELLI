@@ -35,14 +35,14 @@ export const PARTS_CATEGORIES: PartsCategory[] = [
     label: 'Elettronica e Impianti',
     vehicleType: 'auto',
     iconName: 'Zap',
-    subcategories: ['Centraline', 'Alternatori', 'Motorini di avviamento', 'Far e luci'],
+    subcategories: ['Centraline', 'Alternatori', 'Motorini di avviamento', 'Far e luci', 'Aria Condizionata'],
   },
   {
     id: 'sospensioni-auto',
     label: 'Sospensioni e Sterzo',
     vehicleType: 'auto',
     iconName: 'GitBranch',
-    subcategories: ['Ammortizzatori', 'Molle', 'Bracci', 'Scatola sterzo', 'Cerchi e pneumatici'],
+    subcategories: ['Ammortizzatori', 'Molle', 'Bracci', 'Scatola sterzo', 'Cerchi'],
   },
   {
     id: 'moto-ricambi',

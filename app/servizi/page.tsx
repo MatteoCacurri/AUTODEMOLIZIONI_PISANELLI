@@ -23,7 +23,7 @@ const WHY_US = [
     icon: Truck,
     title: 'Ritiro a domicilio',
     description:
-      'Non devi preoccuparti del trasporto. Veniamo noi da te con i nostri mezzi: carro attrezzi ACI e bisarca propria.',
+      'Non devi preoccuparti del trasporto. Veniamo noi da te con i nostri mezzi: carro attrezzi.',
   },
   {
     icon: Clock,

@@ -29,7 +29,7 @@ export const SERVICES: Service[] = [
     description:
       'Ritiriamo il tuo veicolo direttamente presso la tua abitazione o qualsiasi luogo tu indichi. Servizio rapido e puntuale con mezzi propri.',
     iconName: 'Truck',
-    features: ['Provincia di Roma', 'Carro attrezzi ACI', 'Bisarca propria'],
+    features: ['Tutta Italia', 'Bisarca propria'],
   },
   {
     id: 'acquisto-incidentate',
@@ -49,7 +49,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'vendita-auto',
-    title: 'Vendita Autovetture',
+    title: 'Vendita Autovetture Usate',
     description:
       'Selezione di autovetture disponibili per la vendita diretta. Veicoli accuratamente controllati dal nostro personale esperto.',
     iconName: 'ShoppingCart',

@@ -52,22 +52,19 @@ const STEPS = [
 const VEICOLI = [
   { icon: Car, label: 'Autovetture' },
   { icon: Bike, label: 'Moto e Scooter' },
-  { icon: Truck, label: 'Furgoni' },
   { icon: Boxes, label: 'Veicoli commerciali' },
 ]
 
 const DOCUMENTI = [
   "Carta d'identità del proprietario (o del delegato con delega scritta)",
   'Libretto di circolazione originale',
-  'Certificato di proprietà (atto di vendita o foglio complementare)',
-  'Targhe del veicolo (salvo diversa indicazione normativa)',
+  'Certificato di proprietà(se acquistata prima di Ottobre 2015) o foglio complementare',
   'Codice fiscale del proprietario',
+  'Denuncia di smarrimento in caso di mancata documentazione'
 ]
 
 const RILASCIAMO = [
-  'Certificato di Rottamazione (ricevuta demolizione)',
-  'Ricevuta cancellazione PRA (o avvio pratica)',
-  'Copia documentazione consegnata',
+  'Certificato di Rottamazione (cartaceo o digitale)',
 ]
 
 export default function RottamazionePage() {
@@ -169,7 +166,7 @@ export default function RottamazionePage() {
                 ))}
               </div>
               <p className="text-gray-500 text-xs mt-4 leading-relaxed">
-                Accettiamo veicoli in qualsiasi condizione: funzionanti, non avviabili, incidentati, senza targhe.
+                Accettiamo veicoli in qualsiasi condizione: funzionanti, non avviabili, incidentati.
               </p>
             </div>
 
