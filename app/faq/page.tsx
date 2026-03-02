@@ -8,7 +8,7 @@ import { WHATSAPP_URL } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Domande Frequenti - Rottamazione e Ricambi Usati',
   description:
-    'Risposte alle domande più comuni su rottamazione veicoli, documenti necessari, ritiro gratuito, ricambi usati, garanzie e spedizioni. Autodemolizioni Pisanelli, Gerano (Roma).',
+    'Domande frequenti su rottamazione, documenti, ritiro gratuito, ricambi usati e spedizioni. Autodemolizioni Pisanelli, Gerano (Roma).',
 }
 
 const FAQ_GROUPS = [

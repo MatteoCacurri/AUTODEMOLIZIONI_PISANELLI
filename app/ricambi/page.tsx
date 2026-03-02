@@ -9,7 +9,7 @@ import { WHATSAPP_URL, EMAIL_MAILTO } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Ricambi Usati Auto Moto Scooter - Gerano (Roma)',
   description:
-    'Ricambi usati e rigenerati per auto, moto e scooter di tutte le marche. Motori, cambi, carrozzeria, elettronica e molto altro. Pezzi selezionati e garantiti. Autodemolizioni Pisanelli, Gerano (Roma).',
+    'Ricambi usati e rigenerati per auto, moto e scooter. Motori, cambi, carrozzeria, elettronica. Pezzi selezionati e garantiti. Gerano (Roma).',
 }
 
 export default function RicambiPage() {

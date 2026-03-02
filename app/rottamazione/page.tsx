@@ -19,7 +19,7 @@ import RottamazioneForm from '@/components/rottamazione/RottamazioneForm'
 export const metadata: Metadata = {
   title: 'Rottamazione Auto Provincia di Roma - Ritiro Gratuito',
   description:
-    'Rottamazione veicoli autorizzata con ritiro gratuito in tutta la provincia di Roma. Pratiche PRA incluse, Certificato di Rottamazione garantito. Risposta entro 30 minuti. Autodemolizioni Pisanelli, Gerano.',
+    'Rottamazione veicoli con ritiro gratuito in provincia di Roma. Pratiche PRA incluse, Certificato garantito. Risposta entro 30 minuti. Gerano.',
 }
 
 const STEPS = [

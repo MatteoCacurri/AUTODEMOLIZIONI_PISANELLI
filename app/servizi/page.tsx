@@ -9,7 +9,7 @@ import { WHATSAPP_URL, EMAIL_MAILTO, COMPANY } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Servizi Demolizione e Rottamazione Veicoli - Roma',
   description:
-    'Demolizione veicoli, cancellazione PRA, ritiro a domicilio gratuito, acquisto vetture incidentate e vendita ricambi usati. Impianto autorizzato. Autodemolizioni Pisanelli, Gerano (Roma).',
+    'Demolizione veicoli, cancellazione PRA e ritiro gratuito in provincia di Roma. Ricambi usati garantiti. Impianto autorizzato. Gerano (Roma).',
 }
 
 const WHY_US = [

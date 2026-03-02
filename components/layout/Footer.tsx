@@ -136,6 +136,9 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
           <span>© {new Date().getFullYear()} {COMPANY.name}. Tutti i diritti riservati.</span>
           <div className="flex items-center gap-4">
+            <Link href="/termini-condizioni" className="hover:text-gray-300 transition-colors">
+              Termini e Condizioni
+            </Link>
             <a
               href="https://www.iubenda.com/privacy-policy/36659174"
               target="_blank"
@@ -151,6 +154,13 @@ export default function Footer() {
               className="hover:text-gray-300 transition-colors"
             >
               Cookie Policy
+            </a>
+            <a
+              href="#"
+              className="hover:text-gray-300 transition-colors"
+              data-iubenda-cs-preferences-link
+            >
+              Gestisci preferenze cookie
             </a>
             <span>P.IVA {COMPANY.vatNumber}</span>
           </div>

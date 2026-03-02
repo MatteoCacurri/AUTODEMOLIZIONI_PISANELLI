@@ -59,7 +59,7 @@ const localBusinessSchema = {
   name: 'Autodemolizioni Pisanelli srl',
   description:
     'Autodemolizione autorizzata con 40 anni di esperienza. Rottamazione veicoli, ritiro gratuito, cancellazione PRA e vendita ricambi usati e rigenerati per auto, moto e scooter.',
-  url: 'https://www.autodemolizionipiesanelli.it',
+  url: SITE_URL,
   telephone: ['+390774798896', '+393349025620'],
   email: 'autodemolizione.siriopisanelli@gmail.com',
   address: {

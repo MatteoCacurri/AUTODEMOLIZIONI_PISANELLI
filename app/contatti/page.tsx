@@ -15,7 +15,7 @@ import ContactForm from '@/components/ui/ContactForm'
 export const metadata: Metadata = {
   title: 'Contatti e Dove Siamo',
   description:
-    'Contatta Autodemolizioni Pisanelli: telefoni, email, WhatsApp e mappa. Via della Mola snc, 00025 Gerano (Roma). Aperto Lun-Ven 8:30-17:00 e Sab 8:30-12:30.',
+    'Contatta Autodemolizioni Pisanelli: telefono, email, WhatsApp e mappa. Via della Mola snc, 00025 Gerano (Roma). Lun-Ven 8:30-17:00.',
 }
 
 const PHONES = [
