@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
+import { SITE_URL } from '@/lib/constants'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -11,12 +12,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Autodemolizioni Pisanelli srl | Rottamazione e Ricambi Usati - Gerano (Roma)',
     template: '%s | Autodemolizioni Pisanelli',
   },
   description:
-    'Autodemolizione autorizzata a Gerano (Roma). Rottamazione veicoli con ritiro gratuito in tutta la provincia, cancellazione PRA inclusa. Ricambi usati e rigenerati per auto, moto e scooter. 40 anni di esperienza.',
+    'Autodemolizione autorizzata a Gerano (Roma). Rottamazione con ritiro gratuito, cancellazione PRA e ricambi usati. 40 anni di esperienza.',
   keywords: [
     'autodemolizioni Gerano',
     'autodemolizioni Roma',
@@ -34,6 +36,18 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'it_IT',
     siteName: 'Autodemolizioni Pisanelli srl',
+    images: [
+      {
+        url: '/images/banner-panoramico.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Autodemolizioni Pisanelli srl — Gerano (Roma)',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/banner-panoramico.jpg'],
   },
 }
 
@@ -64,6 +78,12 @@ const localBusinessSchema = {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '08:30',
+      closes: '12:30',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '14:30',
       closes: '17:00',
     },
     {
