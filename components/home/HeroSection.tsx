@@ -68,11 +68,11 @@ export default function HeroSection() {
         <p className="mt-6 text-sm text-gray-400">
           Preferisci chiamare?{' '}
           <a
-            href={`tel:${COMPANY.contacts.phone.magazzino.tel}`}
+            href={`tel:${COMPANY.contacts.phone.tiziano.tel}`}
             className="text-white font-semibold hover:text-brand-orange transition-colors inline-flex items-center gap-1"
           >
             <Phone className="w-3.5 h-3.5" />
-            {COMPANY.contacts.phone.magazzino.number}
+            {COMPANY.contacts.phone.tiziano.number}
           </a>
         </p>
       </div>
