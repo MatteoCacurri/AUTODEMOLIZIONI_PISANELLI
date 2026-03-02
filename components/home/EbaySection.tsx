@@ -38,8 +38,8 @@ export default function EbaySection() {
                 Spedizione in Italia
               </div>
               <div className="flex items-center gap-2 text-gray-300 text-sm">
-                <span className="text-yellow-400 text-base">★</span>
-                100% feedback positivo
+                <Package className="w-4 h-4 text-green-400" />
+                Garanzia acquirenti eBay
               </div>
             </div>
 
@@ -83,7 +83,7 @@ export default function EbaySection() {
               </div>
               {[
                 { label: 'Annunci attivi', value: '—', sub: 'disponibili online' },
-                { label: 'Feedback', value: '100%', sub: 'positivo' },
+                { label: 'Pagamento', value: '✓', sub: 'sicuro e protetto' },
                 { label: 'Spedizione', value: '24/48h', sub: 'in tutta Italia' },
               ].map(({ label, value, sub }) => (
                 <div key={label} className="flex items-center justify-between">

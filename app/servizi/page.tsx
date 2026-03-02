@@ -7,7 +7,7 @@ import SectionTitle from '@/components/ui/SectionTitle'
 import { WHATSAPP_URL, EMAIL_MAILTO, COMPANY } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Servizi Demolizione e Rottamazione Veicoli - Roma',
+  title: 'Servizi Rottamazione e Ricambi',
   description:
     'Demolizione veicoli, cancellazione PRA e ritiro gratuito in provincia di Roma. Ricambi usati garantiti. Impianto autorizzato. Gerano (Roma).',
 }

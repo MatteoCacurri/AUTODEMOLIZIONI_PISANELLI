@@ -6,7 +6,7 @@ import FaqAccordion from '@/components/faq/FaqAccordion'
 import { WHATSAPP_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Domande Frequenti - Rottamazione e Ricambi Usati',
+  title: 'FAQ Rottamazione e Ricambi',
   description:
     'Domande frequenti su rottamazione, documenti, ritiro gratuito, ricambi usati e spedizioni. Autodemolizioni Pisanelli, Gerano (Roma).',
 }

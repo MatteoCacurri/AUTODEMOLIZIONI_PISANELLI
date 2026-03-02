@@ -16,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Autodemolizioni Pisanelli srl | Rottamazione e Ricambi Usati - Gerano (Roma)',
+    default: 'Autodemolizioni Pisanelli | Rottamazione Auto – Gerano',
     template: '%s | Autodemolizioni Pisanelli',
   },
   description:
@@ -60,7 +60,8 @@ const localBusinessSchema = {
   description:
     'Autodemolizione autorizzata con 40 anni di esperienza. Rottamazione veicoli, ritiro gratuito, cancellazione PRA e vendita ricambi usati e rigenerati per auto, moto e scooter.',
   url: SITE_URL,
-  telephone: ['+390774798896', '+393349025620'],
+  image: `${SITE_URL}/images/banner-panoramico.jpg`,
+  telephone: ['+393520512406', '+390774798896', '+393349025620', '+393355224195'],
   email: 'autodemolizione.siriopisanelli@gmail.com',
   address: {
     '@type': 'PostalAddress',

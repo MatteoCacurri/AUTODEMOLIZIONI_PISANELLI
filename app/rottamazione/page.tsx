@@ -17,7 +17,7 @@ import { WHATSAPP_URL } from '@/lib/constants'
 import RottamazioneForm from '@/components/rottamazione/RottamazioneForm'
 
 export const metadata: Metadata = {
-  title: 'Rottamazione Auto Provincia di Roma - Ritiro Gratuito',
+  title: 'Rottamazione con Ritiro Gratuito',
   description:
     'Rottamazione veicoli con ritiro gratuito in provincia di Roma. Pratiche PRA incluse, Certificato garantito. Risposta entro 30 minuti. Gerano.',
 }

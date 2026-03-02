@@ -7,7 +7,7 @@ import SectionTitle from '@/components/ui/SectionTitle'
 import { WHATSAPP_URL, EMAIL_MAILTO } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Ricambi Usati Auto Moto Scooter - Gerano (Roma)',
+  title: 'Ricambi Usati Auto Moto Scooter',
   description:
     'Ricambi usati e rigenerati per auto, moto e scooter. Motori, cambi, carrozzeria, elettronica. Pezzi selezionati e garantiti. Gerano (Roma).',
 }
