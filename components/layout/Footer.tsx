@@ -135,7 +135,25 @@ export default function Footer() {
       <div className="border-t border-brand-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
           <span>© {new Date().getFullYear()} {COMPANY.name}. Tutti i diritti riservati.</span>
-          <span>P.IVA {COMPANY.vatNumber}</span>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.iubenda.com/privacy-policy/36659174"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="https://www.iubenda.com/privacy-policy/36659174/cookie-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition-colors"
+            >
+              Cookie Policy
+            </a>
+            <span>P.IVA {COMPANY.vatNumber}</span>
+          </div>
         </div>
       </div>
     </footer>

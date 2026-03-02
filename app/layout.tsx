@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
 import { SITE_URL } from '@/lib/constants'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -118,6 +120,12 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Analytics />
+        {/* Iubenda Cookie Banner */}
+        <Script
+          src="https://embeds.iubenda.com/widgets/62c74194-927d-4594-88f3-2b5d958f47e7.js"
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   )
