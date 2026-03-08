@@ -1,31 +1,75 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import { Send, MessageCircle } from 'lucide-react'
-import { COMPANY, WHATSAPP_URL } from '@/lib/constants'
+import { Send, MessageCircle, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { WHATSAPP_URL } from '@/lib/constants'
 
 const TIPO_VEICOLO_OPTIONS = [
   { value: '', label: 'Seleziona tipo veicolo...' },
-  { value: 'auto', label: 'Autovettura' },
-  { value: 'moto', label: 'Moto / Scooter' },
-  { value: 'furgone', label: 'Furgone' },
-  { value: 'commerciale', label: 'Veicolo commerciale' },
-  { value: 'altro', label: 'Altro' },
+  { value: 'Autovettura', label: 'Autovettura' },
+  { value: 'Moto / Scooter', label: 'Moto / Scooter' },
+  { value: 'Furgone', label: 'Furgone' },
+  { value: 'Veicolo commerciale', label: 'Veicolo commerciale' },
+  { value: 'Altro', label: 'Altro' },
 ]
+
+type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export default function RottamazioneForm() {
   const [nome, setNome] = useState('')
   const [telefono, setTelefono] = useState('')
   const [tipoVeicolo, setTipoVeicolo] = useState('')
   const [note, setNote] = useState('')
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    const subject = encodeURIComponent('Richiesta rottamazione dal sito')
-    const body = encodeURIComponent(
-      `Nome: ${nome}\nTelefono: ${telefono}\nTipo veicolo: ${TIPO_VEICOLO_OPTIONS.find((o) => o.value === tipoVeicolo)?.label ?? tipoVeicolo}\n\nNote:\n${note}`
+    setStatus('loading')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch('/api/rottamazione', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, telefono, tipoVeicolo, note }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setErrorMsg(data.error ?? 'Errore nell\'invio.')
+        setStatus('error')
+        return
+      }
+
+      setStatus('success')
+      setNome('')
+      setTelefono('')
+      setTipoVeicolo('')
+      setNote('')
+    } catch {
+      setErrorMsg('Errore di rete. Controlla la connessione e riprova.')
+      setStatus('error')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="flex flex-col items-center justify-center py-10 text-center gap-4">
+        <CheckCircle className="w-12 h-12 text-green-500" />
+        <h3 className="text-white font-semibold text-lg">Richiesta inviata!</h3>
+        <p className="text-gray-400 text-sm">
+          Ti ricontatteremo entro 30 minuti per organizzare il ritiro gratuito.
+        </p>
+        <button
+          onClick={() => setStatus('idle')}
+          className="text-brand-orange hover:underline text-sm mt-2"
+        >
+          Invia un'altra richiesta
+        </button>
+      </div>
     )
-    window.location.href = `mailto:${COMPANY.contacts.email}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -95,12 +139,29 @@ export default function RottamazioneForm() {
           />
         </div>
 
+        {status === 'error' && (
+          <div className="flex items-center gap-2 text-red-400 text-sm bg-red-950/40 border border-red-900 rounded-lg px-4 py-3">
+            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            <span>{errorMsg}</span>
+          </div>
+        )}
+
         <button
           type="submit"
-          className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+          disabled={status === 'loading'}
+          className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
         >
-          <Send className="w-4 h-4" />
-          Richiedi Ritiro
+          {status === 'loading' ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              Invio in corso...
+            </>
+          ) : (
+            <>
+              <Send className="w-4 h-4" />
+              Richiedi Ritiro
+            </>
+          )}
         </button>
 
         <p className="text-xs text-gray-500 text-center">

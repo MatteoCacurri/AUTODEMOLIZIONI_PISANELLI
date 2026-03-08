@@ -1,32 +1,73 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import { Send } from 'lucide-react'
-import { COMPANY } from '@/lib/constants'
+import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 
 const TIPO_OPTIONS = [
   { value: '', label: 'Seleziona tipo richiesta...' },
-  { value: 'rottamazione', label: 'Rottamazione / Ritiro veicolo' },
-  { value: 'ricambio', label: 'Ricambio usato' },
-  { value: 'acquisto', label: 'Acquisto vettura incidentata' },
-  { value: 'altro', label: 'Altro' },
+  { value: 'Rottamazione / Ritiro veicolo', label: 'Rottamazione / Ritiro veicolo' },
+  { value: 'Ricambio usato', label: 'Ricambio usato' },
+  { value: 'Acquisto vettura incidentata', label: 'Acquisto vettura incidentata' },
+  { value: 'Altro', label: 'Altro' },
 ]
+
+type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export default function ContactForm() {
   const [nome, setNome] = useState('')
   const [telefono, setTelefono] = useState('')
   const [tipo, setTipo] = useState('')
   const [messaggio, setMessaggio] = useState('')
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    const subject = encodeURIComponent(
-      `Richiesta dal sito: ${(TIPO_OPTIONS.find((o) => o.value === tipo)?.label ?? tipo) || 'Contatto'}`
+    setStatus('loading')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch('/api/contatto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, telefono, tipo, messaggio }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setErrorMsg(data.error ?? 'Errore nell\'invio.')
+        setStatus('error')
+        return
+      }
+
+      setStatus('success')
+      setNome('')
+      setTelefono('')
+      setTipo('')
+      setMessaggio('')
+    } catch {
+      setErrorMsg('Errore di rete. Controlla la connessione e riprova.')
+      setStatus('error')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="flex flex-col items-center justify-center py-10 text-center gap-4">
+        <CheckCircle className="w-12 h-12 text-green-500" />
+        <h3 className="text-white font-semibold text-lg">Richiesta inviata!</h3>
+        <p className="text-gray-400 text-sm">
+          Ti risponderemo entro 30 minuti in orario lavorativo.
+        </p>
+        <button
+          onClick={() => setStatus('idle')}
+          className="text-brand-orange hover:underline text-sm mt-2"
+        >
+          Invia un'altra richiesta
+        </button>
+      </div>
     )
-    const body = encodeURIComponent(
-      `Nome: ${nome}\nTelefono: ${telefono}\nTipo richiesta: ${TIPO_OPTIONS.find((o) => o.value === tipo)?.label ?? tipo}\n\nMessaggio:\n${messaggio}`
-    )
-    window.location.href = `mailto:${COMPANY.contacts.email}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -95,12 +136,29 @@ export default function ContactForm() {
         />
       </div>
 
+      {status === 'error' && (
+        <div className="flex items-center gap-2 text-red-400 text-sm bg-red-950/40 border border-red-900 rounded-lg px-4 py-3">
+          <AlertCircle className="w-4 h-4 flex-shrink-0" />
+          <span>{errorMsg}</span>
+        </div>
+      )}
+
       <button
         type="submit"
-        className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+        disabled={status === 'loading'}
+        className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
       >
-        <Send className="w-4 h-4" />
-        Invia Richiesta
+        {status === 'loading' ? (
+          <>
+            <Loader2 className="w-4 h-4 animate-spin" />
+            Invio in corso...
+          </>
+        ) : (
+          <>
+            <Send className="w-4 h-4" />
+            Invia Richiesta
+          </>
+        )}
       </button>
 
       <p className="text-xs text-gray-500 text-center">

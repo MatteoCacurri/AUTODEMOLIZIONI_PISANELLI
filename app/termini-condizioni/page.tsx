@@ -14,7 +14,7 @@ export default function TerminiCondizioniPage() {
       <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl font-bold mb-2">Termini e Condizioni</h1>
         <p className="text-gray-400 text-sm mb-10">
-          Ultimo aggiornamento: marzo 2025
+          Ultimo aggiornamento: marzo 2026
         </p>
 
         <section className="space-y-8 text-gray-300 leading-relaxed">
