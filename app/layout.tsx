@@ -51,6 +51,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: ['/images/banner-panoramico.jpg'],
   },
+  verification: {
+    google: 'swHjzV8Td2cL_VtZJ_euTF1tKnYxBXjr8wT55dG0JCQ',
+  },
 }
 
 const localBusinessSchema = {
