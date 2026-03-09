@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { resend, EMAIL_FROM, EMAIL_TO } from '@/lib/resend'
+import { getResend, EMAIL_FROM, EMAIL_TO } from '@/lib/resend'
 import { ricambioTemplate } from '@/lib/email-templates'
 
 const rateMap = new Map<string, { count: number; resetAt: number }>()
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Campi obbligatori mancanti.' }, { status: 400 })
   }
 
-  const { error } = await resend.emails.send({
+  const { error } = await getResend().emails.send({
     from: EMAIL_FROM,
     to: EMAIL_TO,
     subject: `[Sito] Ricambio: ${ricambio} – ${marcaModello}`,
