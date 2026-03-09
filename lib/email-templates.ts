@@ -58,7 +58,7 @@ function row(label: string, value: string) {
 function footer() {
   return `
     <div style="${footerStyle}">
-      Richiesta ricevuta dal sito autodemolizioni-pisanelli.vercel.app
+      Richiesta ricevuta dal sito autodemolizionipisanelli.it
     </div>
   `
 }

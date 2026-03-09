@@ -33,7 +33,7 @@ export const COMPANY = {
 } as const
 
 // Aggiornare con il dominio reale una volta acquistato
-export const SITE_URL = 'https://autodemolizioni-pisanelli.vercel.app'
+export const SITE_URL = 'https://autodemolizionipisanelli.it'
 
 export const EBAY_STORE_URL: string | null = null // aggiornare con URL del negozio eBay quando attivo
 export const WHATSAPP_URL = 'https://wa.me/393349025620'
