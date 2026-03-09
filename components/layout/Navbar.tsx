@@ -54,7 +54,7 @@ export default function Navbar() {
               </Link>
             ))}
             {/* Link Negozio eBay desktop */}
-            {EBAY_STORE_URL ? (
+            {EBAY_STORE_URL && (
               <a
                 href={EBAY_STORE_URL}
                 target="_blank"
@@ -69,15 +69,6 @@ export default function Navbar() {
                 </span>
                 <ExternalLink className="w-3 h-3" />
               </a>
-            ) : (
-              <span className="ml-1 inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-semibold text-gray-500 cursor-not-allowed select-none">
-                <span>
-                  <span style={{ color: '#e53238' }}>e</span>
-                  <span style={{ color: '#0064d2' }}>b</span>
-                  <span style={{ color: '#f5af02' }}>a</span>
-                  <span style={{ color: '#86b817' }}>y</span>
-                </span>
-              </span>
             )}
             <a
               href={`tel:${COMPANY.contacts.phone.tiziano.tel}`}
