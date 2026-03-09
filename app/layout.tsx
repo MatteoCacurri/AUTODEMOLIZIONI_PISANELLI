@@ -118,13 +118,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-      </head>
-      <body className={`${inter.variable} font-sans bg-brand-black text-white antialiased`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <Analytics />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T9SCKWSXM2"
@@ -138,6 +131,13 @@ export default function RootLayout({
             gtag('config', 'G-T9SCKWSXM2');
           `}
         </Script>
+      </head>
+      <body className={`${inter.variable} font-sans bg-brand-black text-white antialiased`}>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <WhatsAppButton />
+        <Analytics />
         {/* Iubenda Cookie Banner */}
         <Script
           src="https://embeds.iubenda.com/widgets/62c74194-927d-4594-88f3-2b5d958f47e7.js"
