@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     images: ['/images/banner-panoramico.jpg'],
   },
   verification: {
-    google: 'swHjzV8Td2cL_VtZJ_euTF1tKnYxBXjr8wT55dG0JCQ',
+    google: 'f3FygiYyScYr5nJS2w3N12E419Y4tbqMBmUZ_pzBfs0',
   },
 }
 
