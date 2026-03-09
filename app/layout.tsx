@@ -125,6 +125,19 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <Analytics />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-T9SCKWSXM2"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-T9SCKWSXM2');
+          `}
+        </Script>
         {/* Iubenda Cookie Banner */}
         <Script
           src="https://embeds.iubenda.com/widgets/62c74194-927d-4594-88f3-2b5d958f47e7.js"
