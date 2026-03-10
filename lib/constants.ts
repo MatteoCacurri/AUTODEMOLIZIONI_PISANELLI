@@ -42,3 +42,5 @@ export const MAPS_EMBED_URL =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.0!2d12.9800!3d41.9300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia+della+Mola%2C+Gerano+RM!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit'
 export const MAPS_LINK =
   'https://www.google.com/maps/search/Autodemolizioni+Pisanelli+Via+della+Mola+Gerano+Roma'
+
+export const GOOGLE_BUSINESS_URL = 'https://maps.app.goo.gl/dgvdoLEHMjRBWXGa6'

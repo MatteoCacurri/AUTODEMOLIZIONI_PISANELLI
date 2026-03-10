@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   title: 'Rottamazione con Ritiro Gratuito',
   description:
     'Rottamazione veicoli con ritiro gratuito in provincia di Roma. Pratiche PRA incluse, Certificato garantito. Risposta entro 30 minuti. Gerano.',
+  alternates: { canonical: '/rottamazione' },
+  openGraph: { url: '/rottamazione' },
 }
 
 const STEPS = [

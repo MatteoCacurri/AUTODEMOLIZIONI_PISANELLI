@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   title: 'Contatti e Dove Siamo',
   description:
     'Contatta Autodemolizioni Pisanelli: telefono, email, WhatsApp e mappa. Via della Mola snc, 00025 Gerano (Roma). Lun-Ven 8:30-17:00.',
+  alternates: { canonical: '/contatti' },
+  openGraph: { url: '/contatti' },
 }
 
 const PHONES = [

@@ -1,29 +1,27 @@
 import { Star, ExternalLink } from 'lucide-react'
 
-// TODO: sostituire con recensioni reali dal profilo Google Business
 const REVIEWS = [
   {
-    name: 'Marco T.',
-    date: 'gennaio 2026',
+    name: 'Giovanni Tescione',
+    date: 'marzo 2026',
     rating: 5,
-    text: 'Servizio eccellente. Ho chiamato la mattina per rottamare la mia Punto e nel pomeriggio erano già qui a ritirarla. Pratiche PRA gestite completamente da loro, zero pensieri.',
+    text: 'Disponibili molto Seri',
   },
   {
-    name: 'Simona R.',
-    date: 'novembre 2025',
+    name: 'Antonio Peruzzi',
+    date: 'maggio 2022',
     rating: 5,
-    text: 'Avevo bisogno di uno specchio retrovisore sinistro per la mia Golf. L\'hanno trovato subito e il prezzo era più che onesto. Personale disponibile e professionale.',
+    text: 'Amichevoli e disponibili',
   },
   {
-    name: 'Officina F.lli Conti',
-    date: 'ottobre 2025',
+    name: 'Bumbu Cristina',
+    date: 'agosto 2025',
     rating: 5,
-    text: 'Siamo clienti abituali per i ricambi. Sempre trovato pezzi di qualità e consegna puntuale. Affidabili come fornitori per la nostra officina.',
+    text: '',
   },
 ]
 
-// TODO: sostituire con il link reale al profilo Google Business
-const GOOGLE_REVIEWS_URL = 'https://www.google.com/maps/search/Autodemolizioni+Pisanelli+Gerano+Roma'
+const GOOGLE_REVIEWS_URL = 'https://maps.app.goo.gl/dgvdoLEHMjRBWXGa6'
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -57,7 +55,7 @@ export default function ReviewsSection() {
               ))}
             </div>
             <span className="text-white font-bold text-lg">5.0</span>
-            <span className="text-gray-400 text-sm">su Google</span>
+            <span className="text-gray-400 text-sm">· 8 recensioni su Google</span>
           </div>
         </div>
 
@@ -78,7 +76,9 @@ export default function ReviewsSection() {
                 </div>
               </div>
               <StarRating rating={review.rating} />
-              <p className="text-gray-400 text-sm leading-relaxed flex-1">&ldquo;{review.text}&rdquo;</p>
+              {review.text && (
+                <p className="text-gray-400 text-sm leading-relaxed flex-1">&ldquo;{review.text}&rdquo;</p>
+              )}
             </div>
           ))}
         </div>

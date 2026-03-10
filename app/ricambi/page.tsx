@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: 'Ricambi Usati Auto Moto Scooter',
   description:
     'Ricambi usati e rigenerati per auto, moto e scooter. Motori, cambi, carrozzeria, elettronica. Pezzi selezionati e garantiti. Gerano (Roma).',
+  alternates: { canonical: '/ricambi' },
+  openGraph: { url: '/ricambi' },
 }
 
 export default function RicambiPage() {

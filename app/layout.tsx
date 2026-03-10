@@ -5,7 +5,7 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
-import { SITE_URL } from '@/lib/constants'
+import { SITE_URL, GOOGLE_BUSINESS_URL, COMPANY } from '@/lib/constants'
 import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({
@@ -56,16 +56,23 @@ export const metadata: Metadata = {
   },
 }
 
+const sameAs = [
+  GOOGLE_BUSINESS_URL,
+].filter(Boolean) as string[]
+
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'AutoPartsStore',
+  '@id': `${SITE_URL}/#organization`,
   name: 'Autodemolizioni Pisanelli srl',
   description:
     'Autodemolizione autorizzata con 40 anni di esperienza. Rottamazione veicoli, ritiro gratuito, cancellazione PRA e vendita ricambi usati e rigenerati per auto, moto e scooter.',
   url: SITE_URL,
+  logo: `${SITE_URL}/images/logo.png`,
   image: `${SITE_URL}/images/banner-panoramico.jpg`,
   telephone: ['+393520512406', '+390774798896', '+393349025620', '+393355224195'],
-  email: 'autodemolizione.siriopisanelli@gmail.com',
+  email: COMPANY.contacts.email,
+  vatID: COMPANY.vatNumber,
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Via della Mola snc',
@@ -104,6 +111,7 @@ const localBusinessSchema = {
     name: 'Provincia di Roma',
   },
   priceRange: '€€',
+  ...(sameAs.length > 0 && { sameAs }),
 }
 
 export default function RootLayout({
@@ -129,7 +137,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
 
             gtag('consent', 'default', {
-              'analytics_storage': 'granted',
+              'analytics_storage': 'denied',
               'ad_storage': 'denied',
               'ad_user_data': 'denied',
               'ad_personalization': 'denied',
@@ -149,7 +157,7 @@ export default function RootLayout({
         {/* Iubenda Cookie Banner */}
         <Script
           src="https://embeds.iubenda.com/widgets/62c74194-927d-4594-88f3-2b5d958f47e7.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
       </body>
     </html>

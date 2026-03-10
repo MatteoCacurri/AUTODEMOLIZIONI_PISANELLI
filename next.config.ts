@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     root: __dirname,
   },
   images: {
-    formats: ["image/webp"],
+    formats: ["image/avif", "image/webp"],
   },
 };
 

@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: 'Servizi Rottamazione e Ricambi',
   description:
     'Demolizione veicoli, cancellazione PRA e ritiro gratuito in provincia di Roma. Ricambi usati garantiti. Impianto autorizzato. Gerano (Roma).',
+  alternates: { canonical: '/servizi' },
+  openGraph: { url: '/servizi' },
 }
 
 const WHY_US = [

@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   title: 'FAQ Rottamazione e Ricambi',
   description:
     'Domande frequenti su rottamazione, documenti, ritiro gratuito, ricambi usati e spedizioni. Autodemolizioni Pisanelli, Gerano (Roma).',
+  alternates: { canonical: '/faq' },
+  openGraph: { url: '/faq' },
 }
 
 const FAQ_GROUPS = [
@@ -68,29 +70,9 @@ const FAQ_GROUPS = [
   },
 ]
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQ_GROUPS.flatMap((g) =>
-    g.items.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.a,
-      },
-    }))
-  ),
-}
-
 export default function FaqPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
       {/* Hero */}
       <section className="relative overflow-hidden py-20 lg:py-28 flex items-center justify-center">
         <Image
