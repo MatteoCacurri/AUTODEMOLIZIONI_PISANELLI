@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
+import FermoAmministrativoBanner from '@/components/ui/FermoAmministrativoBanner'
 import AboutSection from '@/components/home/AboutSection'
 import ServicesPreview from '@/components/home/ServicesPreview'
 import EbaySection from '@/components/home/EbaySection'
@@ -17,6 +18,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <FermoAmministrativoBanner variant="banner" />
       <TrustBar />
       <AboutSection />
       <ServicesPreview />

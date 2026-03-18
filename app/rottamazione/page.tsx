@@ -12,9 +12,11 @@ import {
   MapPin,
   MessageCircle,
   CheckCircle2,
+  Gavel,
 } from 'lucide-react'
 import { WHATSAPP_URL } from '@/lib/constants'
 import RottamazioneForm from '@/components/rottamazione/RottamazioneForm'
+import FermoAmministrativoBanner from '@/components/ui/FermoAmministrativoBanner'
 
 export const metadata: Metadata = {
   title: 'Rottamazione con Ritiro Gratuito',
@@ -52,9 +54,10 @@ const STEPS = [
 ]
 
 const VEICOLI = [
-  { icon: Car, label: 'Autovetture' },
-  { icon: Bike, label: 'Moto e Scooter' },
-  { icon: Boxes, label: 'Veicoli commerciali' },
+  { icon: Car, label: 'Autovetture', highlight: false },
+  { icon: Bike, label: 'Moto e Scooter', highlight: false },
+  { icon: Boxes, label: 'Veicoli commerciali', highlight: false },
+  { icon: Gavel, label: 'Con fermo amministrativo', highlight: true },
 ]
 
 const DOCUMENTI = [
@@ -114,6 +117,8 @@ export default function RottamazionePage() {
         </div>
       </section>
 
+      <FermoAmministrativoBanner variant="inline" />
+
       {/* Processo 4 step */}
       <section className="bg-brand-black py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -160,15 +165,29 @@ export default function RottamazionePage() {
                 Veicoli accettati
               </h2>
               <div className="grid grid-cols-2 gap-3">
-                {VEICOLI.map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex items-center gap-3 bg-brand-gray-dark rounded-xl px-4 py-3">
+                {VEICOLI.map(({ icon: Icon, label, highlight }) => (
+                  <div
+                    key={label}
+                    className={`flex items-center gap-3 rounded-xl px-4 py-3 ${
+                      highlight
+                        ? 'col-span-2 bg-brand-orange/10 border border-brand-orange/50'
+                        : 'bg-brand-gray-dark'
+                    }`}
+                  >
                     <Icon className="w-5 h-5 text-brand-orange flex-shrink-0" />
-                    <span className="text-gray-300 text-sm font-medium">{label}</span>
+                    <span className={`text-sm font-medium flex-1 ${highlight ? 'text-white font-semibold' : 'text-gray-300'}`}>
+                      {label}
+                    </span>
+                    {highlight && (
+                      <span className="text-xs bg-brand-orange text-white px-2 py-0.5 rounded-full font-bold flex-shrink-0">
+                        SÌ
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
               <p className="text-gray-500 text-xs mt-4 leading-relaxed">
-                Accettiamo veicoli in qualsiasi condizione: funzionanti, non avviabili, incidentati.
+                Accettiamo veicoli in qualsiasi condizione: funzionanti, non avviabili, incidentati, con fermo amministrativo.
               </p>
             </div>
 
