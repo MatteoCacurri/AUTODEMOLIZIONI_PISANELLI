@@ -23,7 +23,7 @@ export default function FermoAmministrativoBanner({ variant }: FermoAmministrati
                 Caso speciale? Nessun problema
               </p>
               <h2 className="text-2xl sm:text-3xl font-black text-brand-black leading-tight">
-                Accettiamo veicoli con{' '}
+                Rottamiamo veicoli con{' '}
                 <span className="text-brand-orange">fermo amministrativo</span>
               </h2>
               <p className="text-gray-500 text-sm mt-1">
@@ -63,7 +63,7 @@ export default function FermoAmministrativoBanner({ variant }: FermoAmministrati
               Caso speciale? Nessun problema
             </p>
             <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-              Accettiamo veicoli con fermo amministrativo
+              Rottamiamo veicoli con fermo amministrativo
             </h2>
             <p className="text-white/80 text-sm mt-2 max-w-xl lg:max-w-none">
               Pendenze burocratiche o legali non sono un ostacolo.

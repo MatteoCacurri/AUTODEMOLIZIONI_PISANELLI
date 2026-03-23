@@ -187,7 +187,7 @@ export default function RottamazionePage() {
                 ))}
               </div>
               <p className="text-gray-500 text-xs mt-4 leading-relaxed">
-                Accettiamo veicoli in qualsiasi condizione: funzionanti, non avviabili, incidentati, con fermo amministrativo.
+                Rottamiamo veicoli in qualsiasi condizione: funzionanti, non avviabili, incidentati, con fermo amministrativo.
               </p>
             </div>
 
