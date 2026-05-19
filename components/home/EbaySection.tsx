@@ -82,7 +82,7 @@ export default function EbaySection() {
                 <div className="text-gray-400 text-xs mt-1 uppercase tracking-widest">Negozio Ufficiale</div>
               </div>
               {[
-                { label: 'Annunci attivi', value: '—', sub: 'disponibili online' },
+                { label: 'Annunci attivi', value: '50+', sub: 'disponibili online' },
                 { label: 'Pagamento', value: '✓', sub: 'sicuro e protetto' },
                 { label: 'Spedizione', value: '24/48h', sub: 'in tutta Italia' },
               ].map(({ label, value, sub }) => (

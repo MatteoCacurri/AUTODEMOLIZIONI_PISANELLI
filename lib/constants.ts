@@ -35,7 +35,7 @@ export const COMPANY = {
 // Aggiornare con il dominio reale una volta acquistato
 export const SITE_URL = 'https://autodemolizionipisanelli.it'
 
-export const EBAY_STORE_URL: string | null = null // aggiornare con URL del negozio eBay quando attivo
+export const EBAY_STORE_URL: string | null = 'https://www.ebay.it/str/autodemolizionipisanelli'
 export const WHATSAPP_URL = 'https://wa.me/393349025620'
 export const EMAIL_MAILTO = `mailto:${COMPANY.contacts.email}`
 export const MAPS_EMBED_URL =
