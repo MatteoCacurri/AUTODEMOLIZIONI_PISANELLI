@@ -126,11 +126,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-T9SCKWSXM2"
-          strategy="afterInteractive"
-        />
+        {/* Google Analytics in Consent Mode «base»: gtag.js si carica solo dopo il sì al banner
+            Iubenda (consent update con analytics_storage granted). Prima del consenso a Google
+            non parte niente, nemmeno i segnali anonimi della modalità avanzata. */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -145,6 +143,27 @@ export default function RootLayout({
 
             gtag('js', new Date());
             gtag('config', 'G-T9SCKWSXM2');
+
+            (function () {
+              var caricato = false;
+              function carica() {
+                if (caricato) return;
+                caricato = true;
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-T9SCKWSXM2';
+                document.head.appendChild(s);
+              }
+              function concesso(a) {
+                return a && a[0] === 'consent' && a[1] === 'update' && a[2] && a[2].analytics_storage === 'granted';
+              }
+              for (var i = 0; i < dataLayer.length; i++) if (concesso(dataLayer[i])) carica();
+              var push = dataLayer.push;
+              dataLayer.push = function () {
+                for (var j = 0; j < arguments.length; j++) if (concesso(arguments[j])) carica();
+                return push.apply(dataLayer, arguments);
+              };
+            })();
           `}
         </Script>
       </head>
