@@ -142,13 +142,14 @@ export default function RootLayout({
             });
 
             gtag('js', new Date());
-            gtag('config', 'G-T9SCKWSXM2');
 
             (function () {
               var caricato = false;
               function carica() {
                 if (caricato) return;
                 caricato = true;
+                // config dopo l'aggiornamento del consenso, così anche la prima visita conta come consentita
+                gtag('config', 'G-T9SCKWSXM2');
                 var s = document.createElement('script');
                 s.async = true;
                 s.src = 'https://www.googletagmanager.com/gtag/js?id=G-T9SCKWSXM2';
@@ -160,8 +161,9 @@ export default function RootLayout({
               for (var i = 0; i < dataLayer.length; i++) if (concesso(dataLayer[i])) carica();
               var push = dataLayer.push;
               dataLayer.push = function () {
+                var r = push.apply(dataLayer, arguments);
                 for (var j = 0; j < arguments.length; j++) if (concesso(arguments[j])) carica();
-                return push.apply(dataLayer, arguments);
+                return r;
               };
             })();
           `}
